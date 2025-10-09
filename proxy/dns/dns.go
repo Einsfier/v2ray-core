@@ -356,11 +356,13 @@ func (h *Handler) handleDNSError(id uint16, qType dnsmessage.Type, domain string
 	})
 	builder.EnableCompression()
 	common.Must(builder.StartQuestions())
-	common.Must(builder.Question(dnsmessage.Question{
-		Name:  dnsmessage.MustNewName(domain),
-		Class: dnsmessage.ClassINET,
-		Type:  qType,
-	}))
+	if len(domain) > 0 && strings.HasSuffix(domain, ".") {
+		common.Must(builder.Question(dnsmessage.Question{
+			Name:  dnsmessage.MustNewName(domain),
+			Class: dnsmessage.ClassINET,
+			Type:  qType,
+		}))
+	}
 	common.Must(builder.StartAnswers())
 
 	msgBytes, err := builder.Finish()
