@@ -1,3 +1,32 @@
+> [!CAUTION]
+> **⚠️ 本项目已停止维护，请迁移至 Xray-core 版本 / This project is deprecated, please migrate to the Xray-core port**
+>
+> 本项目（基于 V2Ray-core 的修改版）已不再更新。所有功能已移植至 Xray-core，并带来了诸多改进：
+>
+> - 支持 VLESS + REALITY 等新协议，安全性和抗检测能力更强
+> - DNS 增强：过期缓存续命（`serveExpiredTTL`）、并行查询（`enableParallelQuery`）、精确 fallback 控制（`skipFallback` / `finalQuery`）
+> - 更智能的负载均衡：`burst` 观测器提供 RTT 均值/标准差/失败率统计，`leastload` 策略综合延迟+稳定性选路
+> - 支持为不同负载均衡器配置独立观测器（`multiObservatory`）
+> - 修复了 `leastload` 策略 `tolerance` 参数不生效、DNS UDP Server 长期复用连接导致无法触发负载均衡重选路等问题
+> - 路由默认有效期从 6 小时延长至 24 小时，减少冷启动频率
+>
+> 👉 **迁移至：[Einsfier/Xray-core](https://github.com/Einsfier/Xray-core)**
+>
+> ---
+>
+> This project (modified V2Ray-core) is no longer maintained. All features have been ported to Xray-core with significant improvements:
+>
+> - VLESS + REALITY protocol support for better security and censorship resistance
+> - Enhanced DNS: expired cache serving, parallel queries, precise fallback control (`skipFallback` / `finalQuery`)
+> - Smarter load balancing: `burst` observer with RTT mean/stddev/failure rate stats, `leastload` strategy considering latency + stability
+> - Independent observers per balancer via `multiObservatory`
+> - Bug fixes: `leastload` tolerance parameter, DNS UDP connection reuse preventing balancer re-selection
+> - Default route TTL extended from 6h to 24h, reducing cold-start frequency
+>
+> 👉 **Migrate to: [Einsfier/Xray-core](https://github.com/Einsfier/Xray-core)**
+
+---
+
 > This is a modified V2Ray-core maintained by myself.
 >
 > Updates from the upstream will be merged periodically.
